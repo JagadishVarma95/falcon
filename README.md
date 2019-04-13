@@ -3,10 +3,10 @@
 Spring Boot Ecommerce application
 
 How to run and deploy ?
-1.git clone the repo.
-2.change the mysql username,password & dbUrl as per your local in application.properties
-3.run mvn clean install.
-4.Deploy the war file in target folder
+1. Git clone the repo.
+2. Change the mysql username,password & dbUrl as per your local in application.properties
+3. Run mvn clean install.
+4. Deploy the war file in target folder
 
 API'S
 
@@ -17,7 +17,7 @@ API'S
 	          "name" : "chairs"
             }
          
-2.Update item quantity details
+2. Update item quantity details
   POST http://localhost:8080/falcon/item/update/quantity
    Request : {
 	          "id" : 1,
