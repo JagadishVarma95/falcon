@@ -29,7 +29,7 @@ public class ItemController {
     ItemService itemService;
 
     /**
-     * Adds item to db
+     * Adds item to db and returns added item
      * @param item
      * @return item
      */
@@ -56,6 +56,11 @@ public class ItemController {
 
     }
 
+    /**
+     * Updates the quantity of item by id
+     * @param item
+     * @return updated item
+     */
     @PostMapping("/update/quantity")
     public ResponseEntity<?> updateItem(@RequestBody Item item)  {
         ResponseObj<Item> response = new ResponseObj<>();
@@ -77,6 +82,12 @@ public class ItemController {
             return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
         }
     }
+
+    /**
+     * Fetches the details of Item by Id
+     * @param id
+     * @return Item
+     */
 
     @GetMapping("/details/{id}")
     public ResponseEntity<?> getItemDetails(@PathVariable("id") Long id)  {
@@ -100,6 +111,12 @@ public class ItemController {
         }
     }
 
+    /**
+     * Returns the items in db with pagination
+     * @param page
+     * @param size
+     * @return Items
+     */
     @GetMapping("/details")
     public ResponseEntity<?> getAllItemDetails(@RequestParam(required = false) Integer page,
                                                @RequestParam(required = false) Integer size)  {
@@ -121,6 +138,12 @@ public class ItemController {
 
 
     }
+
+    /**
+     * Deletes an entity
+     * @param id
+     * @return response
+     */
 
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> updateItem(@PathVariable("id") Long id)  {

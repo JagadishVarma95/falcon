@@ -28,6 +28,12 @@ public class OrderController {
 	@Autowired
 	OrderService orderService;
 
+	/**
+	 * Adds order to database with timestamp
+	 * @param order
+	 * @return added Order
+	 */
+
 	@PostMapping("/add")
 	public ResponseEntity<?> addOrder(@RequestBody Order order) {
 		ResponseObj<Order> response = new ResponseObj<>();
@@ -56,6 +62,14 @@ public class OrderController {
 
 	}
 
+	/**
+	 * Returns the orders objects by pagination
+	 * @param emailId
+	 * @param page
+	 * @param size
+	 * @return Orders list
+	 */
+
 	@GetMapping("/details")
 	public ResponseEntity<?> getOrderDetailsByEmail(@RequestParam(required = false) String emailId,
 													@RequestParam(required = false) Integer page,
@@ -83,6 +97,11 @@ public class OrderController {
 		}
 	}
 
+	/**
+	 * Returns order by orderId
+	 * @param id
+	 * @return Order
+	 */
 	@GetMapping("/details/{id}")
 	public ResponseEntity<?> getOrderDetails(@PathVariable("id") Long id) {
 		ResponseObj<Order> response = new ResponseObj<>();
